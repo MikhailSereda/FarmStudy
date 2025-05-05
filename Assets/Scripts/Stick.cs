@@ -9,7 +9,7 @@ namespace Golf
     public class Stick : MonoBehaviour
     {
         public UnityEvent<Collider> onCollision;
-        private void OCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision collision)
         {
             onCollision.Invoke(collision.collider);
         }
