@@ -29,7 +29,7 @@ namespace Golf
         {
             score++;
             hightScore = Mathf.Max(score,hightScore);
-            Debug.Log($"score: {score} - hightScore:{hightScore}");
+            Debug.Log($"Очки: {score} - Рекорд:{hightScore}");
         }
         private void OnEnable()
         {

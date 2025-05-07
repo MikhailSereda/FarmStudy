@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using UnityEngine;
 namespace TZ
 {
@@ -8,28 +10,31 @@ namespace TZ
         public BigStoneSpawner spawner;
         public CloudController cloudcontroller;
         public List <Refresh> villagers;
-        private void Update()
+
+        public void ClickStone()
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            spawner.Spawn();
+        }
+        public void ClickCloud()
+        {
+            cloudcontroller.Action();
+        }
+        public void ClickHend()
+        {
+            foreach (var villager in villagers)
             {
-                Debug.Log("X Key down");
-                spawner.Spawn();
+            villager.ChangeTool();
             }
+        }
+        public virtual void Enter()
+        {
+            gameObject.SetActive(true);
+        }
 
-            if(Input.GetKeyDown(KeyCode.Z))
-            {
-                Debug.Log("Z Key down");
-                cloudcontroller.Action();
-            }
-
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Space Key down");
-                foreach (var villager in villagers)
-                {
-                    villager.ChangeTool();
-                }
-            }
-        }        
+        public virtual void Exit()
+        {
+            gameObject.SetActive(false);
+        }
+         
     }
 }

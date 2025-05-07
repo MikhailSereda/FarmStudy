@@ -22,6 +22,6 @@ public class GameOverState : GameState
     }
     private void OnStickHit()
     {
-        scoreText.text = $"Score : {levelController.score}";
+        scoreText.text = $"Очки : {levelController.score}";
     }
 }
