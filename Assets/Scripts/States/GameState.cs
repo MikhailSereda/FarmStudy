@@ -1,37 +1,36 @@
-﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace Golf
 {
-    public abstract class GameState : MonoBehaviour
+    public class GameState : MonoBehaviour
     {
         public List<GameObject> views;
-
-        public void Enter()
-        { 
+        
+        public virtual void Enter()
+        {
             gameObject.SetActive(true);
         }
-        public void Exit() 
-        { 
+
+        public virtual void Exit()
+        {
             gameObject.SetActive(false);
         }
 
         protected virtual void OnEnable()
         {
-            foreach (var item in views)
+            foreach(var items in views)
             {
-                item.SetActive(true);
+                items.SetActive(true);
             }
         }
 
         protected virtual void OnDisable()
         {
-            foreach (var item in views)
+            foreach(var items in views)
             {
-                if (item)
+                if(items)
                 {
-                    item.SetActive(false);
+                    items.SetActive(false);
                 }
             }
         }

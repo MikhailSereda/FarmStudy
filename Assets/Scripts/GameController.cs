@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 namespace Golf
 {
-    public class GameContr : MonoBehaviour
+    public class GameController : MonoBehaviour
     {
-        public MainMenuState mainMenuState;
-
+       public MenuState menuState;
+        
         private void Start()
         {
-            mainMenuState.gameObject.SetActive(true);
+            menuState.gameObject.SetActive(true);   
         }
     }
 }

@@ -1,25 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-
 
 namespace Golf
 {
     public static class GameEvents
     {
-        public static event System.Action onCollisionStones;
-        public static event System.Action onStickHit;
-
-
-        public static void CollisonStonesInvoke(Collision collision)
-        { 
-            onCollisionStones?.Invoke();
-        }
-
-        public static void StickHit()
-        {
+         public static System.Action onCollisionStone;
+         public static System.Action onStickHit;
+         public static void CollisionStonesInvoke(Collision collision)
+         {
+            onCollisionStone?.Invoke();
+         }
+         public static void StickHit()
+         {
             onStickHit?.Invoke();
-        }
-
+         }
     }
 }
